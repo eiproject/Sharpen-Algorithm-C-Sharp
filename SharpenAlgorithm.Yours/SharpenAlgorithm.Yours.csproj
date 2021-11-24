@@ -43,6 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgorithmLibrary\Search\BinarySearch.cs" />
+    <Compile Include="AlgorithmLibrary\Search\ExponentialSearch.cs" />
+    <Compile Include="AlgorithmLibrary\Search\InterpolationSearch.cs" />
+    <Compile Include="AlgorithmLibrary\Search\JumpSearch.cs" />
+    <Compile Include="AlgorithmLibrary\Search\LinearSearch.cs" />
+    <Compile Include="AlgorithmLibrary\Sort\BubbleSort.cs" />
+    <Compile Include="AlgorithmLibrary\Sort\HeapSort.cs" />
+    <Compile Include="AlgorithmLibrary\Sort\InsertionSort.cs" />
+    <Compile Include="AlgorithmLibrary\Sort\MergeSort.cs" />
+    <Compile Include="AlgorithmLibrary\Sort\QuickSort.cs" />
+    <Compile Include="AlgorithmLibrary\Sort\SelectionSort.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
