@@ -53,7 +53,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       {
         Response response = algorithm.FirstTry();
         TimeSpan elapsed = _watch.Elapsed;
-        Console.WriteLine(algorithm.GetType().Name + " " + elapsed.TotalSeconds + "s");
+        Console.WriteLine(algorithm.GetType().Name + " " + elapsed.TotalMilliseconds + "ms");
       }
       catch (NotImplementedException)
       {
@@ -72,7 +72,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       {
         Response response = algorithm.Optimized();
         TimeSpan elapsed = _watch.Elapsed;
-        Console.WriteLine(algorithm.GetType().Name + " " + elapsed.TotalSeconds + "s");
+        Console.WriteLine(algorithm.GetType().Name + " " + elapsed.TotalMilliseconds + "ms");
       }
       catch (NotImplementedException)
       {

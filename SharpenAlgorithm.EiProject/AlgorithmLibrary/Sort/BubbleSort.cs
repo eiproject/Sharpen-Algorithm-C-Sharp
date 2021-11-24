@@ -17,12 +17,41 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
 
     public Response FirstTry()
     {
-      return new Response();
+      int[] inputArray = new int[_inputArray.Length];
+      _inputArray.CopyTo(inputArray, 0);
+
+      for (int i = 0; i < inputArray.Length - 1; i++) { 
+        for (int id = 0; id < inputArray.Length - 1; id++)
+        {
+          if (inputArray[id] > inputArray[id+1])
+          {
+            int a = inputArray[id];
+            inputArray[id] = inputArray[id+1];
+            inputArray[id+1] = a;
+          }
+        }
+      }
+      return new Response() {ResultArr = inputArray};
     }
 
     public Response Optimized()
     {
-      throw new NotImplementedException();
+      int[] inputArray = new int[_inputArray.Length];
+      _inputArray.CopyTo(inputArray, 0);
+
+      for (int i = 0; i < inputArray.Length - 1; i++)
+      {
+        for (int id = 0; id < inputArray.Length - 1; id++)
+        {
+          if (inputArray[id] > inputArray[id + 1])
+          {
+            int a = inputArray[id];
+            inputArray[id] = inputArray[id + 1];
+            inputArray[id + 1] = a;
+          }
+        }
+      }
+      return new Response(){ResultArr = inputArray};
     }
   }
 }
