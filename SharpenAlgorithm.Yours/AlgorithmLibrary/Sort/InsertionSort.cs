@@ -1,19 +1,25 @@
-﻿using System;
+﻿using SharpenAlgorithm.Yours.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
+namespace SharpenAlgorithm.Yours.AlgorithmLibrary.Sort
 {
-  class InsertionSort
+  class InsertionSort : IAlgorithm
   {
-    public int[] FirstTry()
+    private int[] _inputArray;
+    public InsertionSort(int[] inputArray)
+    {
+      _inputArray = inputArray;
+    }
+    public Response FirstTry()
     {
       throw new NotImplementedException();
     }
 
-    public int[] Optimized()
+    public Response Optimized()
     {
       throw new NotImplementedException();
     }

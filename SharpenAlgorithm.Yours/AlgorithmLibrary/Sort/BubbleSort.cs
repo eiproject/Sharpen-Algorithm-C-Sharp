@@ -1,21 +1,57 @@
-﻿using System;
+﻿using SharpenAlgorithm.Yours.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
+namespace SharpenAlgorithm.Yours.AlgorithmLibrary.Sort
 {
-  class BubbleSort
+  class BubbleSort : IAlgorithm
   {
-    public int[] FirstTry()
+    private int[] _inputArray;
+    public BubbleSort(int[] inputArray)
     {
-      throw new NotImplementedException();
+      _inputArray = inputArray;
     }
 
-    public int[] Optimized()
+    public Response FirstTry()
     {
-      throw new NotImplementedException();
+      int[] inputArray = new int[_inputArray.Length];
+      _inputArray.CopyTo(inputArray, 0);
+
+      for (int i = 0; i < inputArray.Length - 1; i++) { 
+        for (int id = 0; id < inputArray.Length - 1; id++)
+        {
+          if (inputArray[id] > inputArray[id+1])
+          {
+            int a = inputArray[id];
+            inputArray[id] = inputArray[id+1];
+            inputArray[id+1] = a;
+          }
+        }
+      }
+      return new Response() {ResultArr = inputArray};
+    }
+
+    public Response Optimized()
+    {
+      int[] inputArray = new int[_inputArray.Length];
+      _inputArray.CopyTo(inputArray, 0);
+
+      for (int i = 0; i < inputArray.Length - 1; i++)
+      {
+        for (int id = 0; id < inputArray.Length - 1; id++)
+        {
+          if (inputArray[id] > inputArray[id + 1])
+          {
+            int a = inputArray[id];
+            inputArray[id] = inputArray[id + 1];
+            inputArray[id + 1] = a;
+          }
+        }
+      }
+      return new Response(){ResultArr = inputArray};
     }
   }
 }

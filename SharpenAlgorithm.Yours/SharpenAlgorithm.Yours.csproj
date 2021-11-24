@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgorithmLibrary\IAlgorithm.cs" />
     <Compile Include="AlgorithmLibrary\Search\BinarySearch.cs" />
     <Compile Include="AlgorithmLibrary\Search\ExponentialSearch.cs" />
     <Compile Include="AlgorithmLibrary\Search\InterpolationSearch.cs" />
@@ -54,8 +55,11 @@
     <Compile Include="AlgorithmLibrary\Sort\MergeSort.cs" />
     <Compile Include="AlgorithmLibrary\Sort\QuickSort.cs" />
     <Compile Include="AlgorithmLibrary\Sort\SelectionSort.cs" />
+    <Compile Include="Database\Database.cs" />
+    <Compile Include="Model\Response.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunningTest\Run.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SharpenAlgorithm.Yours.Database;
+using SharpenAlgorithm.Yours.RunningTest;
+using System;
 
 namespace SharpenAlgorithm.Yours
 {
@@ -10,6 +8,11 @@ namespace SharpenAlgorithm.Yours
   {
     static void Main(string[] args)
     {
+      InputDatabase db = new InputDatabase();
+      Run app = new Run(db);
+      app.Start();
+
+      Console.ReadKey();
     }
   }
 }
