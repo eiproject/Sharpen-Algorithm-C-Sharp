@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpenAlgorithm.EiProject", "SharpenAlgorithm.EiProject\SharpenAlgorithm.EiProject.csproj", "{9366E089-7249-4399-B530-C019ED2401C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpenAlgorithm.Yours", "SharpenAlgorithm.Yours\SharpenAlgorithm.Yours.csproj", "{C3A5E31A-F3AD-49CB-86C2-4D69987B6BB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9366E089-7249-4399-B530-C019ED2401C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9366E089-7249-4399-B530-C019ED2401C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9366E089-7249-4399-B530-C019ED2401C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9366E089-7249-4399-B530-C019ED2401C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A5E31A-F3AD-49CB-86C2-4D69987B6BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A5E31A-F3AD-49CB-86C2-4D69987B6BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A5E31A-F3AD-49CB-86C2-4D69987B6BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A5E31A-F3AD-49CB-86C2-4D69987B6BB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9E52338-320B-430E-9B58-EEFCD21DCC6E}
+	EndGlobalSection
+EndGlobal
