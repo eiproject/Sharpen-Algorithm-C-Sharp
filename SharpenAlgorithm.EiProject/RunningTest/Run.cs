@@ -12,21 +12,28 @@ namespace SharpenAlgorithm.EiProject.RunningTest
   {
     private Stopwatch _watch;
     private InputDatabase _db;
+    private int _trueCount;
+    private int _falseCount;
+    private int _notImplementedCount;
     public Run(InputDatabase db)
     {
       _watch = new Stopwatch();
       _db = db;
+      _trueCount = 0;
+      _falseCount = 0;
+      _notImplementedCount = 0;
     }
 
     public void Start()
     {
       Console.WriteLine("Starting!");
       FullTest(_db.RandNumbers);
+      LogSummery();
     }
 
     private void FullTest(int[] inputArray)
     {
-      SingleTest(new BubbleSort(inputArray));
+      SingleTest(new BubbleSort(_db));
       SingleTest(new HeapSort(inputArray));
       SingleTest(new InsertionSort(inputArray));
       SingleTest(new MergeSort(inputArray));
@@ -52,11 +59,11 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       try
       {
         Response response = algorithm.FirstTry();
-        Console.WriteLine(algorithm.GetType().Name + " " + _watch.Elapsed.TotalMilliseconds + "ms");
+        LogResponse(algorithm, response);
       }
       catch (NotImplementedException)
       {
-        Console.WriteLine(algorithm.GetType().Name + ", Not Implemented");
+        LogNotImplemented(algorithm);
       }
       finally
       {
@@ -70,16 +77,52 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       try
       {
         Response response = algorithm.Optimized();
-        Console.WriteLine(algorithm.GetType().Name + " " + _watch.Elapsed.TotalMilliseconds + "ms");
+        LogResponse(algorithm, response);
       }
       catch (NotImplementedException)
       {
-        Console.WriteLine(algorithm.GetType().Name + ", Not Implemented");
+        LogNotImplemented(algorithm);
       }
       finally
       {
         _watch.Reset();
       }
+    }
+
+    private void LogResponse(IAlgorithm algorithm, Response response)
+    {
+      Console.WriteLine(
+        algorithm.GetType().Name + " => " +
+        "Status: " + response.Status + " " + 
+        "Elapsed: " + _watch.Elapsed.TotalMilliseconds + "ms");
+
+      if (response.Status)
+      {
+        _trueCount++;
+      }
+      else
+      {
+        _falseCount++;
+      }
+    }
+
+    private void LogNotImplemented(IAlgorithm algorithm)
+    {
+      Console.WriteLine(algorithm.GetType().Name +
+          ", Not Implemented");
+      _notImplementedCount++;
+    }
+
+    private void LogSummery()
+    {
+      Console.WriteLine(
+$@"|------------------------------------------|
+|---------------- SUMMARY -----------------|
+| True result     : {_trueCount}{new string(' ', 23 - _trueCount.ToString().Length)}|
+| False result    : {_falseCount}{new string(' ', 23 - _falseCount.ToString().Length)}|
+| Not implemented : {_notImplementedCount}{new string(' ', 23 - _notImplementedCount.ToString().Length)}|
+|------------------------------------------|
+");
     }
   }
 }

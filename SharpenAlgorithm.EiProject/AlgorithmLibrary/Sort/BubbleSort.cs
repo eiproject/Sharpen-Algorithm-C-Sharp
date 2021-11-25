@@ -1,4 +1,5 @@
-﻿using SharpenAlgorithm.EiProject.Model;
+﻿using SharpenAlgorithm.EiProject.Database;
+using SharpenAlgorithm.EiProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,16 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
 {
   class BubbleSort : IAlgorithm
   {
-    private int[] _inputArray;
-    public BubbleSort(int[] inputArray)
+    private InputDatabase _db;
+    public BubbleSort(InputDatabase db)
     {
-      _inputArray = inputArray;
+      _db = db;
     }
 
     public Response FirstTry()
     {
-      int[] inputArray = new int[_inputArray.Length];
-      _inputArray.CopyTo(inputArray, 0);
+      int[] inputArray = new int[_db.RandNumbers.Length];
+      _db.RandNumbers.CopyTo(inputArray, 0);
       
       // Logic start here
       for (int i = 0; i < inputArray.Length - 1; i++) { 
@@ -32,15 +33,20 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
           }
         }
       }
-      return new Response() {ResultArr = inputArray};
+      
+
+      return new Response() {
+        ResultArr = inputArray,
+        Status = inputArray.SequenceEqual(_db.SortedNumbers)
+      };
     }
 
     public Response Optimized()
     {
       int a;
-      int[] inputArray = new int[_inputArray.Length];
-      _inputArray.CopyTo(inputArray, 0);
-      
+      int[] inputArray = new int[_db.RandNumbers.Length];
+      _db.RandNumbers.CopyTo(inputArray, 0);
+
       // Logic start here
       for (int i = 0; i < inputArray.Length - 1; i++)
       {
@@ -52,7 +58,7 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
             // Swap the bubble
             a = inputArray[id];
             inputArray[id] = inputArray[id + 1];
-            inputArray[id + 1] = a;
+            // inputArray[id + 1] = a;
             if (!isSorting) isSorting = true;
           }
         }
@@ -62,7 +68,11 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
           break;
         }
       }
-      return new Response(){ResultArr = inputArray};
+      return new Response()
+      {
+        ResultArr = inputArray,
+        Status = inputArray.SequenceEqual(_db.SortedNumbers)
+      };
     }
   }
 }

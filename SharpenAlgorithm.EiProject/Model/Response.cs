@@ -9,6 +9,6 @@ namespace SharpenAlgorithm.EiProject.Model
   class Response
   {
     public int[] ResultArr { get; set; }
-    public int Result { get; set; }
+    public bool Status { get; set; }
   }
 }
