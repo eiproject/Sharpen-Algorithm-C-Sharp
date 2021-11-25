@@ -13,11 +13,11 @@ namespace SharpenAlgorithm.EiProject
       InputDatabase db = new InputDatabase();
       RNG rng = new RNG();
       Run app = new Run(db);
-      db.RandNumbers = rng.CreateUniqueRandomIntArray(1000, 0, 5000);
+      db.RandNumbers = rng.CreateUniqueRandomIntArray(100, 0, 500);
       
-      Thread.Sleep(3000);
+      Thread.Sleep(1000);
       Console.WriteLine("Stabilizing ...");
-      Thread.Sleep(3000);
+      Thread.Sleep(1000);
       app.Start();
       Console.ReadKey();
     }

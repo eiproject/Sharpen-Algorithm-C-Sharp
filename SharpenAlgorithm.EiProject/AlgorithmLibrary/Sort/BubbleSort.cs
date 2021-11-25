@@ -58,13 +58,14 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
             // Swap the bubble
             a = inputArray[id];
             inputArray[id] = inputArray[id + 1];
-            // inputArray[id + 1] = a;
+            inputArray[id + 1] = a;
             if (!isSorting) isSorting = true;
           }
         }
 
         if (!isSorting)
         {
+          //Console.WriteLine("Skip on " + i + "/" + inputArray.Length);
           break;
         }
       }
