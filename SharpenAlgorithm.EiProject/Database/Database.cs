@@ -12,6 +12,7 @@ namespace SharpenAlgorithm.EiProject.Database
   /// </summary>
   class InputDatabase
   {
+    public int[] CustomInput10 = new int[7] { 3, 4, 2, 6, 1, 7, 5 };
     public int[] RandNumbers { 
       get
       {

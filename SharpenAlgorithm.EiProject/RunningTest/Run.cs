@@ -45,7 +45,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
     private void FullTest(int[] inputArray)
     {
       SingleTest(new BubbleSort(_db));
-      SingleTest(new HeapSort(inputArray));
+      SingleTest(new HeapSort(_db));
       SingleTest(new MergeSort(inputArray));
       SingleTest(new QuickSort(inputArray));
       SingleTest(new InsertionSort(inputArray));
