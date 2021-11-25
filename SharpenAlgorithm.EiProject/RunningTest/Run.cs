@@ -21,7 +21,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
     public void Start()
     {
       Console.WriteLine("Starting!");
-      FullTest(_db.Ages);
+      FullTest(_db.RandNumbers);
     }
 
     private void FullTest(int[] inputArray)
@@ -52,8 +52,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       try
       {
         Response response = algorithm.FirstTry();
-        TimeSpan elapsed = _watch.Elapsed;
-        Console.WriteLine(algorithm.GetType().Name + " " + elapsed.TotalMilliseconds + "ms");
+        Console.WriteLine(algorithm.GetType().Name + " " + _watch.Elapsed.TotalMilliseconds + "ms");
       }
       catch (NotImplementedException)
       {
@@ -71,8 +70,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       try
       {
         Response response = algorithm.Optimized();
-        TimeSpan elapsed = _watch.Elapsed;
-        Console.WriteLine(algorithm.GetType().Name + " " + elapsed.TotalMilliseconds + "ms");
+        Console.WriteLine(algorithm.GetType().Name + " " + _watch.Elapsed.TotalMilliseconds + "ms");
       }
       catch (NotImplementedException)
       {

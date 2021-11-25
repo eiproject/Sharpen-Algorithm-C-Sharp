@@ -1,5 +1,6 @@
 ﻿using SharpenAlgorithm.EiProject.Database;
 using SharpenAlgorithm.EiProject.RunningTest;
+using SharpenAlgorithm.EiProject.Utility;
 using System;
 using System.Threading;
 
@@ -10,7 +11,10 @@ namespace SharpenAlgorithm.EiProject
     static void Main(string[] args)
     {
       InputDatabase db = new InputDatabase();
+      RNG rng = new RNG();
       Run app = new Run(db);
+      db.RandNumbers = rng.CreateUniqueRandomIntArray(1000, 0, 5000);
+      
       Thread.Sleep(3000);
       Console.WriteLine("Stabilizing ...");
       Thread.Sleep(3000);
