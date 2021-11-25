@@ -46,16 +46,16 @@ namespace SharpenAlgorithm.EiProject.RunningTest
     {
       SingleTest(new BubbleSort(_db));
       SingleTest(new HeapSort(inputArray));
-      SingleTest(new InsertionSort(inputArray));
       SingleTest(new MergeSort(inputArray));
       SingleTest(new QuickSort(inputArray));
+      SingleTest(new InsertionSort(inputArray));
       SingleTest(new SelectionSort(inputArray));
 
+      SingleTest(new JumpSearch(inputArray));
+      SingleTest(new LinearSearch(inputArray));
       SingleTest(new BinarySearch(inputArray));
       SingleTest(new ExponentialSearch(inputArray));
       SingleTest(new InterpolationSearch(inputArray));
-      SingleTest(new JumpSearch(inputArray));
-      SingleTest(new LinearSearch(inputArray));
     }
 
     private void SingleTest(IAlgorithm algorithm)
@@ -63,22 +63,25 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       ResetTimer();
       ResetStatus();
 
-      for (int i = 0; i< 100; i++)
+      // first try test 
+      for (int i = 0; i < 1000; i++)
       {
-        StatusCode status = FirstTryTest(algorithm);
+        StatusCode status = RunFirstTryMethod(algorithm);
         if (status == StatusCode.Fail) break;
       }
       if (_isFirstTrySuccess) LogResultOK(algorithm, _firstTryTimer);
 
-      for (int i = 0; i < 100; i++)
+      // optimization test
+      for (int i = 0; i < 1000; i++)
       {
-        StatusCode status = OptimizedTest(algorithm);
+        StatusCode status = RunOptimizationMethod(algorithm);
         if (status == StatusCode.Fail) break;
       }
       if (_isOptimizationSuccess) LogResultOK(algorithm, _optimizationTimer);
 
+      // Get result
       if (_isFirstTrySuccess == true && _isOptimizationSuccess == true) 
-        GetOptimizationResult();
+        GetPercentageOfOptimizationResult();
     }
 
     private void ResetTimer()
@@ -93,7 +96,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       _isOptimizationSuccess = false;
     }
 
-    private StatusCode FirstTryTest(IAlgorithm algorithm)
+    private StatusCode RunFirstTryMethod(IAlgorithm algorithm)
     {
       try
       {
@@ -116,7 +119,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       }
       finally
       {
-        _watch.Stop();
+        _watch.Reset();
       }
     }
 
@@ -126,7 +129,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       _firstTryTimer = _firstTryTimer != 0 ? elapsed : (_firstTryTimer + elapsed) / 2;
     }
 
-    private StatusCode OptimizedTest(IAlgorithm algorithm)
+    private StatusCode RunOptimizationMethod(IAlgorithm algorithm)
     {
       try
       {
@@ -149,7 +152,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       }
       finally
       {
-        _watch.Stop();
+        _watch.Reset();
       }
     }
 
@@ -165,7 +168,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       status = true;
     }
 
-    private void GetOptimizationResult()
+    private void GetPercentageOfOptimizationResult()
     {
       Console.WriteLine($"=> Optimization: {(_firstTryTimer - _optimizationTimer)/_firstTryTimer*100}%");
     }

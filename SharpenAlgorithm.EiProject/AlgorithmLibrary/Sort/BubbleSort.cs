@@ -33,7 +33,6 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
           }
         }
       }
-      
 
       return new Response() {
         ResultArr = inputArray,
