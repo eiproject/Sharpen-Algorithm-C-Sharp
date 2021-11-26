@@ -103,7 +103,7 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
 
     private int[] CreateMaxHeapOpt(int[] inputArray)
     {
-      bool isAllEvaluated;
+      bool isAllEvaluated = false;
       bool isSwapping = true;
       int leafesEachNode = 2;
 
@@ -113,8 +113,6 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
         isAllEvaluated = false;
         for (int i = 0; i < inputArray.Length; i++)
         {
-          if (isAllEvaluated)
-            break;
           for (int s = 0; s < leafesEachNode; s++)
           {
             if (i * 2 + s < inputArray.Length - 1)
@@ -132,6 +130,9 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
               break;
             }
           }
+
+          if (isAllEvaluated)
+            break;
         }
       }
       return inputArray;

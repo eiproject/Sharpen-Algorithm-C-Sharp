@@ -27,6 +27,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
     private double _optimizationTimer;
     private bool _isFirstTrySuccess;
     private bool _isOptimizationSuccess;
+
     public Run(InputDatabase db)
     {
       _watch = new Stopwatch();
@@ -34,14 +35,26 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       _trueCount = 0;
       _falseCount = 0;
       _notImplementedCount = 0;
+      _stressTestNumber = 1000;
     }
 
-    public void Start(int stressTestNumber)
+    public void Stabilizer()
+    {
+      Thread.Sleep(1000);
+      Console.WriteLine("Stabilizing ...");
+      Thread.Sleep(1000);
+    }
+
+    public void Start()
     {
       Console.WriteLine("Starting!");
-      _stressTestNumber = stressTestNumber;
       FullTest(_db.RandNumbers);
       LogSummery();
+    }
+
+    public void CreateCustomStressTest(int stressTestNumber)
+    {
+      _stressTestNumber = stressTestNumber;
     }
 
     private void FullTest(int[] inputArray)

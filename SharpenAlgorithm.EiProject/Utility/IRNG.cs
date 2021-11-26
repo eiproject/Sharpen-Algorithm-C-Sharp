@@ -27,6 +27,6 @@ namespace SharpenAlgorithm.EiProject.Utility
     /// <param name="min"></param>
     /// <param name="max"></param>
     /// <returns></returns>
-    int[] CreateUniqueRandomIntArray(int arraySize, int min, int max)
+    int[] CreateUniqueRandomIntArray(int arraySize, int min, int max);
   }
 }

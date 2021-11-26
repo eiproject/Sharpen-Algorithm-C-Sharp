@@ -9,9 +9,18 @@ namespace SharpenAlgorithm.EiProject.RunningTest
   interface IRun
   {
     /// <summary>
-    /// Start to test all algorithm with specify number of Stress Testing
+    /// Run a stabilizer, a set of Thread'Sleep() to stabilize the thread memory
+    /// </summary>
+    void Stabilizer();
+    /// <summary>
+    /// Start to test all algorithm
+    /// </summary>
+    void Start();
+
+    /// <summary>
+    /// Create custom Stress Test. Default = 1000
     /// </summary>
     /// <param name="stressTestNumber"></param>
-    void Start(int stressTestNumber);
+    void CreateCustomStressTest(int stressTestNumber);
   }
 }
