@@ -25,8 +25,8 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
       int[] result = new int[arrLength];
       for (int i = 0; i < arrLength; i++)
       {
-        inputArray = CreateMaxheap(inputArray);
-        SwapMaxheap(ref inputArray);
+        inputArray = CreateMaxHeap(inputArray);
+        SwapMaxHeap(ref inputArray);
         result[result.Length - 1 - i] = inputArray[inputArray.Length - 1];
         inputArray = inputArray.Take(inputArray.Length - 1).ToArray();
       }
@@ -38,14 +38,14 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
       };
     }
 
-    private int[] CreateMaxheap(int[] inputArray)
+    private int[] CreateMaxHeap(int[] inputArray)
     {
-      bool _isSwapping = true;
+      bool isSwapping = true;
       int leafesEachNode = 2;
 
-      while (_isSwapping)
+      while (isSwapping)
       {
-        _isSwapping = false;
+        isSwapping = false;
         for (int i = 0; i < inputArray.Length; i++)
         {
           for (int s = 0; s < leafesEachNode; s++)
@@ -56,7 +56,7 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
               if (inputArray[i] < inputArray[leafIndex])
               {
                 Swap(ref inputArray[i], ref inputArray[leafIndex]);
-                _isSwapping = true;
+                isSwapping = true;
               }
             }
           }
@@ -65,7 +65,7 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
       return inputArray;
     }
 
-    private void SwapMaxheap(ref int[] inputArray)
+    private void SwapMaxHeap(ref int[] inputArray)
     {
       int a = inputArray[0];
       inputArray[0] = inputArray[inputArray.Length - 1];
@@ -88,8 +88,8 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
       int[] result = new int[arrLength];
       for (int i = 0; i < arrLength; i++)
       {
-        inputArray = CreateMaxheapOpt(inputArray);
-        SwapMaxheap(ref inputArray);
+        inputArray = CreateMaxHeapOpt(inputArray);
+        SwapMaxHeap(ref inputArray);
         result[result.Length - 1 - i] = inputArray[inputArray.Length - 1];
         inputArray = inputArray.Take(inputArray.Length - 1).ToArray();
       }
@@ -101,19 +101,19 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
       };
     }
 
-    private int[] CreateMaxheapOpt(int[] inputArray)
+    private int[] CreateMaxHeapOpt(int[] inputArray)
     {
-      bool _isSwapping = true;
-      bool _isAllEvaluated = false;
+      bool isAllEvaluated;
+      bool isSwapping = true;
       int leafesEachNode = 2;
 
-      while (_isSwapping)
+      while (isSwapping)
       {
-        _isSwapping = false;
-        _isAllEvaluated = false;
+        isSwapping = false;
+        isAllEvaluated = false;
         for (int i = 0; i < inputArray.Length; i++)
         {
-          if (_isAllEvaluated) 
+          if (isAllEvaluated)
             break;
           for (int s = 0; s < leafesEachNode; s++)
           {
@@ -123,12 +123,12 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Sort
               if (inputArray[i] < inputArray[leafIndex])
               {
                 Swap(ref inputArray[i], ref inputArray[leafIndex]);
-                _isSwapping = true;
+                isSwapping = true;
               }
             }
             else
             {
-              _isAllEvaluated = true;
+              isAllEvaluated = true;
               break;
             }
           }
