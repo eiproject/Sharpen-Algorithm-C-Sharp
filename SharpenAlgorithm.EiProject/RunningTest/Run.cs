@@ -48,7 +48,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
     public void Start()
     {
       Console.WriteLine("Starting!");
-      FullTest(_db.RandNumbers);
+      FullTest();
       LogSummery();
     }
 
@@ -57,20 +57,20 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       _stressTestNumber = stressTestNumber;
     }
 
-    private void FullTest(int[] inputArray)
+    private void FullTest()
     {
       SingleTest(new BubbleSort(_db));
       SingleTest(new HeapSort(_db));
-      SingleTest(new MergeSort(inputArray));
-      SingleTest(new QuickSort(inputArray));
-      SingleTest(new InsertionSort(inputArray));
-      SingleTest(new SelectionSort(inputArray));
+      SingleTest(new MergeSort(_db));
+      SingleTest(new QuickSort(_db));
+      SingleTest(new InsertionSort(_db));
+      SingleTest(new SelectionSort(_db));
 
-      SingleTest(new JumpSearch(inputArray));
-      SingleTest(new LinearSearch(inputArray));
-      SingleTest(new BinarySearch(inputArray));
-      SingleTest(new ExponentialSearch(inputArray));
-      SingleTest(new InterpolationSearch(inputArray));
+      SingleTest(new JumpSearch(_db));
+      SingleTest(new LinearSearch(_db));
+      SingleTest(new BinarySearch(_db));
+      SingleTest(new ExponentialSearch(_db));
+      SingleTest(new InterpolationSearch(_db));
     }
 
     private void SingleTest(IAlgorithm algorithm)

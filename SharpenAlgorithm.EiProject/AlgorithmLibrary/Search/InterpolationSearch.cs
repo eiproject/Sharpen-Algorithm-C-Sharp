@@ -1,4 +1,5 @@
-﻿using SharpenAlgorithm.EiProject.Model;
+﻿using SharpenAlgorithm.EiProject.Database;
+using SharpenAlgorithm.EiProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace SharpenAlgorithm.EiProject.AlgorithmLibrary.Search
 {
   class InterpolationSearch : IAlgorithm
   {
-    private int[] _inputArray;
-    public InterpolationSearch(int[] inputArray)
+    private InputDatabase _db;
+    public InterpolationSearch(InputDatabase db)
     {
-      _inputArray = inputArray;
+      _db = db; ;
     }
     public Response FirstTry()
     {
