@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SharpenAlgorithm.EiProject.Utility
 {
+  /// <summary>
+  /// Random Number Generator
+  /// </summary>
   class RNG
   {
     private Random _random;
@@ -13,20 +16,36 @@ namespace SharpenAlgorithm.EiProject.Utility
     {
       _random = new Random(); 
     }
-    public int[] CreateRandomIntArray(int arrSize, int min, int max)
+
+    /// <summary>
+    /// Create random array of integer
+    /// </summary>
+    /// <param name="arraySize"></param>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    /// <returns></returns>
+    public int[] CreateRandomIntArray(int arraySize, int min, int max)
     {
-      int[] result = new int[arrSize];
-      for (int i = 0; i < arrSize; i++)
+      int[] result = new int[arraySize];
+      for (int i = 0; i < arraySize; i++)
       {
         result[i] = _random.Next(min, max);
       }
       return result;
     }
 
-    public int[] CreateUniqueRandomIntArray(int arrSize, int min, int max)
+    /// <summary>
+    /// Create random array of integer which the array only contain unique value
+    /// </summary>
+    /// <param name="arraySize"></param>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    /// <returns></returns>
+    public int[] CreateUniqueRandomIntArray(int arraySize, int min, int max)
     {
-      int[] result = new int[arrSize];
-      for (int i = 0; i < arrSize; i++)
+      if (max - min < arraySize) throw new ArgumentException("Your min and max value is not enough to fullfill the array size");
+      int[] result = new int[arraySize];
+      for (int i = 0; i < arraySize; i++)
       {
         int rand = _random.Next(min, max);
         while (result.Contains(rand))
