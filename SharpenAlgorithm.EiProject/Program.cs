@@ -14,7 +14,7 @@ namespace SharpenAlgorithm.EiProject
       IRNG rng = new RNG();
       IRun app = new Run(db);
 
-      db.RandNumbers = rng.CreateUniqueRandomIntArray(10, 0, 5);
+      db.RandNumbers = rng.CreateUniqueRandomIntArray(10, 0, 50);
 
       app.CreateCustomStressTest(10000);
       app.Stabilizer();
