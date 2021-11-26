@@ -15,13 +15,14 @@ namespace SharpenAlgorithm.EiProject.RunningTest
     Fail
   }
 
-  class Run
+  class Run : IRun
   {
     private Stopwatch _watch;
     private InputDatabase _db;
     private int _trueCount;
     private int _falseCount;
     private int _notImplementedCount;
+    private int _stressTestNumber;
     private double _firstTryTimer;
     private double _optimizationTimer;
     private bool _isFirstTrySuccess;
@@ -35,9 +36,10 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       _notImplementedCount = 0;
     }
 
-    public void Start()
+    public void Start(int stressTestNumber)
     {
       Console.WriteLine("Starting!");
+      _stressTestNumber = stressTestNumber;
       FullTest(_db.RandNumbers);
       LogSummery();
     }
@@ -64,7 +66,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       ResetStatus();
 
       // first try test 
-      for (int i = 0; i < 1000; i++)
+      for (int i = 0; i < _stressTestNumber; i++)
       {
         StatusCode status = RunFirstTryMethod(algorithm);
         if (status == StatusCode.Fail) break;
@@ -72,7 +74,7 @@ namespace SharpenAlgorithm.EiProject.RunningTest
       if (_isFirstTrySuccess) LogResultOK(algorithm, _firstTryTimer);
 
       // optimization test
-      for (int i = 0; i < 1000; i++)
+      for (int i = 0; i < _stressTestNumber; i++)
       {
         StatusCode status = RunOptimizationMethod(algorithm);
         if (status == StatusCode.Fail) break;

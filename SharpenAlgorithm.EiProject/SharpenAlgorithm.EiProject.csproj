@@ -80,7 +80,9 @@
     <Compile Include="Model\Response.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunningTest\IRun.cs" />
     <Compile Include="RunningTest\Run.cs" />
+    <Compile Include="Utility\IRNG.cs" />
     <Compile Include="Utility\RNG.cs" />
   </ItemGroup>
   <ItemGroup>
